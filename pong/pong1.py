@@ -33,8 +33,8 @@ ball.color("white")
 ball.shapesize(stretch_wid=1, stretch_len=1)
 ball.penup()
 ball.goto(0, 0)
-ball.dx=0.25
-ball.dy=0.25
+ball.dx=0.1
+ball.dy=0.1
 
 #function
 def padle_a_up():
@@ -91,3 +91,11 @@ while True:
   if ball.xcor() < -390:
     ball.goto(0, 0)
     ball.dx *= -1
+
+# padle and ball colision
+  if (ball.xcor() > 340 and ball.xcor()< 350) and (ball.ycor() < padle_b.ycor() + 40 and ball.ycor() > padle_b.ycor() -40 ):
+    ball.setx(340)
+    ball.dx *= -1 
+  if (ball.xcor() < -340 and ball.xcor()> -350) and (ball.ycor() < padle_a.ycor() + 40 and ball.ycor() > padle_a.ycor() -40 ):
+    ball.setx(-340)
+    ball.dx *= -1 
